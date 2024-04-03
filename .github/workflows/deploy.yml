@@ -10,8 +10,15 @@
 name: Publish Docker image
 
 on:
-  release:
-    types: [published]
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+#  release:
+#    types: [published]
 
 jobs:
   push_to_registry:

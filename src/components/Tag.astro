@@ -3,7 +3,7 @@ export interface Props {
   name: string;
   size?: "sm" | "lg";
 }
-
+export const prerender = true;
 const { name, size = "sm" } = Astro.props;
 ---
 

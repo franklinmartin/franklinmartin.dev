@@ -3,7 +3,7 @@ import { SITE } from "@config";
 import "@styles/base.css";
 import "../styles/iosevka-aile.css";
 import { ViewTransitions } from "astro:transitions";
-
+export const prerender = true;
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 
 export interface Props {

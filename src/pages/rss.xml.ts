@@ -4,6 +4,8 @@ import getSortedPosts from "@utils/getSortedPosts";
 import slugify from "@utils/slugify";
 import { SITE } from "@config";
 
+export const prerender = true;
+
 export async function GET() {
   const posts = await getCollection("blog");
   const sortedPosts = getSortedPosts(posts);

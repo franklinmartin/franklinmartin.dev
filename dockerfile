@@ -3,7 +3,7 @@ WORKDIR /app
 
 COPY . .
 RUN npm install -g npm@10.5.1
-RUN npm install @astrojs/node --force
+RUN npm install @astrojs/node --force 
 RUN npm run build
 
 ENV HOST=0.0.0.0

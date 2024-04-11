@@ -49,6 +49,7 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
   deploy:
+    needs: push_to_registry
     name: deploy
     runs-on: ubuntu-latest
     steps:
@@ -65,6 +66,6 @@ jobs:
           keep_files: 5
           args: up -d
           docker_prune: 'false'
-          pull_images_first: 'false'
+          pull_images_first: 'true'
 
 

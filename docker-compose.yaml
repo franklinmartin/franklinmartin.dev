@@ -1,9 +1,9 @@
-version: 3'
+version: '3'
 services:
   app:
-    image: fmcdev/franklinmartin.dev
-    container_name: fm_web
+    image: fmcdev/franklinmartin.dev:latest
+    container_name: fmweb
     restart: always
-    command:
-    ports: 80:4321
+    ports:
+      - "80:4321"
     working_dir: /app

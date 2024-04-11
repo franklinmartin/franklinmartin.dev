@@ -53,7 +53,7 @@ jobs:
     name: deploy
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy to Docker swarm
+      - name: Deploy to Docker host
         uses: wshihadeh/docker-deployment-action@v1
         with:
           remote_docker_host: hal@franklinmartin.dev
@@ -61,7 +61,7 @@ jobs:
           ssh_public_key: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
           deployment_mode: docker-compose
           copy_stack_file: true
-          deploy_path: /root/my-deployment
+          deploy_path: /var/www
           stack_file_name: docker-compose.yaml
           keep_files: 5
           args: up -d

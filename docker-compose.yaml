@@ -7,5 +7,3 @@ services:
     ports:
       - "80:4321"
     working_dir: /app
-    volumes:
-    - /var/www

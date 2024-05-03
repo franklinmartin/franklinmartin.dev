@@ -59,8 +59,8 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
-          source: "docker-compose.yaml"
-          target: "~/"
+          source: docker-compose.yaml
+          target: /home/hal
 
       - name: Deploy to Docker host
         uses: appleboy/ssh-action@v1.0.3

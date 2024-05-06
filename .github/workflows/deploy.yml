@@ -53,6 +53,9 @@ jobs:
     name: deploy
     runs-on: ubuntu-latest
     steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+        
       - name: copy file via ssh key
         uses: appleboy/scp-action@v0.1.7
         with:

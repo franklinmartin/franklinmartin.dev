@@ -55,7 +55,7 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v4
-        
+
       - name: copy file via ssh key
         uses: appleboy/scp-action@v0.1.7
         with:
@@ -71,7 +71,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           host: ${{ secrets.HOST }}
           key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
-          script: docker-compose -f docker-compose.yaml up -d
+          script: docker compose -f docker-compose.yaml up -d
 
 
 

@@ -72,9 +72,7 @@ jobs:
           host: ${{ secrets.HOST }}
           key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
           script: |
-            sudo groupadd docker
-            sudo usermod -aG docker ${USER}
-            docker compose -f docker-compose.yaml up -d
+            echo ${{ secrets.PASSWORD }} | sudo -S docker compose -f docker-compose.yaml up -d
 
 
 

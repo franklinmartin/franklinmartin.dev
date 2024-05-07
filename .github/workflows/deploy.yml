@@ -72,7 +72,7 @@ jobs:
           host: ${{ secrets.HOST }}
           key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
           script: |
-            echo ${{ secrets.PASSWORD }} | sudo -S docker compose -f docker-compose.yaml up -d
+            docker compose -f docker-compose.yaml up -d
 
 
 

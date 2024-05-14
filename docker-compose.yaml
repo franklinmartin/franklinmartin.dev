@@ -3,8 +3,6 @@ services:
     image: fmcdev/franklinmartin.dev:main
     container_name: fmweb
     restart: always
-    ports:
-    - "4321:4321"
     networks:
       - app-network
     working_dir: /app
@@ -14,7 +12,6 @@ services:
     restart: unless-stopped
     ports:
       - "80:80"
-      - "443:443"
     volumes:
       - "/srv/proxy/conf/:/etc/nginx/conf.d/:ro"
       - "/srv/proxy/certbot/www/:/var/www/:ro"

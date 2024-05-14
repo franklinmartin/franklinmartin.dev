@@ -3,6 +3,8 @@ services:
     image: fmcdev/franklinmartin.dev:main
     container_name: fmweb
     restart: always
+    ports:
+    - "4321:4321"
     networks:
       - app-network
     working_dir: /app

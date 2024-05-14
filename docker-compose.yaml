@@ -8,12 +8,14 @@ services:
     working_dir: /app
   proxy:
     image: nginx:latest
+    container_name: webserver
     restart: unless-stopped
     ports:
       - "80:80"
+      - "443:443"
     volumes:
       - "/srv/proxy/conf/:/etc/nginx/conf.d/:ro"
-      - "/srv/proxy/certbot/www/:/var/www/certbot/:ro"
+      - "/srv/proxy/certbot/www/:/var/www/:ro"
       - "/srv/proxy/certbot/conf/:/etc/nginx/ssl/:ro"
     depends_on:
       - app
@@ -21,8 +23,9 @@ services:
       - app-network
   certbot:
     image: certbot/certbot:latest
+    container_name: certbot
     volumes:
-    - "/srv/proxy/certbot/www/:/var/www/certbot/:rw"
+    - "/srv/proxy/certbot/www/:/var/www/:rw"
     - "/srv/proxy/certbot/conf/:/etc/letsencrypt/:rw"
     depends_on:
       - proxy

@@ -12,6 +12,7 @@ services:
     restart: unless-stopped
     ports:
       - "80:80"
+      - "443:443"
     volumes:
       - "/srv/proxy/conf/:/etc/nginx/conf.d/:ro"
       - "/srv/proxy/certbot/www/:/var/www/:ro"
@@ -28,6 +29,8 @@ services:
     - "/srv/proxy/certbot/conf/:/etc/letsencrypt/:rw"
     depends_on:
       - proxy
+    networks:
+      - app-network
   
 networks:
   app-network:

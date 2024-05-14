@@ -4,7 +4,7 @@ import Card from "@components/Card";
 import slugify from "@utils/slugify";
 import type { CollectionEntry } from "astro:content";
 
-export const prerender = true;
+
 
 export type SearchItem = {
   title: string;

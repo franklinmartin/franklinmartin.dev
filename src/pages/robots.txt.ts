@@ -1,7 +1,7 @@
 import type { APIRoute } from "astro";
 import { SITE } from "@config";
 
-export const prerender = true;
+
 
 const robots = `
 User-agent: Googlebot

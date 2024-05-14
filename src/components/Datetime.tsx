@@ -1,6 +1,6 @@
 import { LOCALE } from "@config";
 
-export const prerender = true;
+
 
 export interface Props {
   datetime: string | Date;

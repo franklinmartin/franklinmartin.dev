@@ -1,6 +1,6 @@
 import type { SocialIcons } from "../types";
 
-export const prerender = true;
+
 
 const socialIcons: SocialIcons = {
   Github: `<svg

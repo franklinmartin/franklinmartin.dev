@@ -8,7 +8,7 @@ services:
       - "443:443"
     volumes:
       - "/srv/proxy/certbot/www/:/var/www/certbot/:ro"
-      - "/srv/proxy/certbot/conf/:/etc/nginx/ssl/:ro"
+      - "/srv/proxy/certbot/conf/:/etc/nginx/conf.d/:ro"
     working_dir: /app
   certbot:
     image: certbot/certbot:latest

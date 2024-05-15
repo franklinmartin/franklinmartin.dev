@@ -10,8 +10,6 @@ services:
       - "/srv/proxy/conf/:/etc/nginx/conf.d/:ro"
       - "/srv/proxy/certbot/www/:/var/www/certbot/:ro"
       - "/srv/proxy/certbot/conf/:/etc/nginx/ssl/:ro"
-    networks:
-      - app-network
     working_dir: /app
   certbot:
     image: certbot/certbot:latest
@@ -19,11 +17,3 @@ services:
     volumes:
     - "/srv/proxy/certbot/www/:/var/www/certbot/:rw"
     - "/srv/proxy/certbot/conf/:/etc/letsencrypt/:rw"
-    depends_on:
-      - app
-    networks:
-      - app-network
-  
-networks:
-  app-network:
-    driver: bridge

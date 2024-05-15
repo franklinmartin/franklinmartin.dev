@@ -7,12 +7,12 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - "/srv/proxy/certbot/www/:/var/www/certbot/:ro"
-      - "/srv/proxy/certbot/conf/:/etc/nginx/conf.d/:ro"
+      - "./nginx/conf/:/etc/nginx/conf.d/:ro"
+      - "./certbot/www/:/var/www/certbot/:ro"
     working_dir: /app
   certbot:
     image: certbot/certbot:latest
     container_name: certbot
     volumes:
-    - "/srv/proxy/certbot/www/:/var/www/certbot/:rw"
-    - "/srv/proxy/certbot/conf/:/etc/letsencrypt/:rw"
+      - "./certbot/www/:/var/www/certbot/:rw"
+      - "./certbot/conf/:/etc/letsencrypt/:rw"

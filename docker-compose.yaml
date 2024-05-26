@@ -6,6 +6,8 @@ services:
     ports:
       - "8080:8080"
     working_dir: /app
+    networks:
+      - network
   proxy:
     image: nginx:latest
     restart: unless-stopped
@@ -16,8 +18,14 @@ services:
       - "/srv/proxy/conf/:/etc/nginx/conf.d/:ro"
       - "/srv/proxy/certbot/www/:/var/www/certbot/:ro"
       - "/srv/proxy/certbot/conf/:/etc/nginx/ssl/:ro"
+    networks:
+      - network
   certbot:
     image: certbot/certbot:latest
     volumes:
     - "/srv/proxy/certbot/www/:/var/www/certbot/:rw"
     - "/srv/proxy/certbot/conf/:/etc/letsencrypt/:rw"
+    networks:
+      - network
+networks:
+  network:

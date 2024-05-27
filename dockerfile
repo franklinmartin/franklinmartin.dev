@@ -2,6 +2,7 @@ FROM node:lts AS build
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
+RUN npm install astrojs
 COPY . .
 RUN npm run build
 

@@ -1,37 +1,30 @@
-import { getRssString } from '@astrojs/rss';
+import rss from "@astrojs/rss";
+import { getCollection } from "astro:content";
+import { HOME } from "@consts";
 
-import { SITE, METADATA, APP_BLOG } from 'astrowind:config';
-import { fetchPosts } from '~/utils/blog';
-import { getPermalink } from '~/utils/permalinks';
+type Context = {
+  site: string
+}
 
-export const GET = async () => {
-  if (!APP_BLOG.isEnabled) {
-    return new Response(null, {
-      status: 404,
-      statusText: 'Not found',
-    });
-  }
+export async function GET(context: Context) {
+  const blog = (await getCollection("blog"))
+  .filter(post => !post.data.draft);
 
-  const posts = await fetchPosts();
+  const projects = (await getCollection("projects"))
+    .filter(project => !project.data.draft);
 
-  const rss = await getRssString({
-    title: `${SITE.name}’s Blog`,
-    description: METADATA?.description || '',
-    site: import.meta.env.SITE,
+  const items = [...blog, ...projects]
+    .sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf());
 
-    items: posts.map((post) => ({
-      link: getPermalink(post.permalink, 'post'),
-      title: post.title,
-      description: post.excerpt,
-      pubDate: post.publishDate,
+  return rss({
+    title: HOME.TITLE,
+    description: HOME.DESCRIPTION,
+    site: context.site,
+    items: items.map((item) => ({
+      title: item.data.title,
+      description: item.data.description,
+      pubDate: item.data.date,
+      link: `/${item.collection}/${item.slug}/`,
     })),
-
-    trailingSlash: SITE.trailingSlash,
   });
-
-  return new Response(rss, {
-    headers: {
-      'Content-Type': 'application/xml',
-    },
-  });
-};
+}

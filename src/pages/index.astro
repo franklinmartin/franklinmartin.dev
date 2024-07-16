@@ -35,16 +35,14 @@ const work = await Promise.all(
 
 <PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
   <Container>
-    <h4 class="animate font-semibold text-black dark:text-white">
-      Greeting message <span class="text-xl">Tailwind CSS text-xl</span>
-    </h4>
-    <div class="space-y-16">
+    <h1 class="animate font-semibold text-black dark:text-white">
+      <span class="text-4xl">Hi, I'm Franklin 👋🏻</span>
+    </h1>
+    <div class="space-y-8">
       <section class="animate space-y-4">
-        <h5 class="font-semibold text-black dark:text-white">Let's Connect</h5>
+        <h5 class="font-semibold text-black dark:text-white"></h5>
         <article>
           <p>
-            If you want to get in touch with me about something or just to say
-            hi, reach out on social media or send me an email.
           </p>
         </article>
         <ul class="flex flex-wrap gap-2">
@@ -58,7 +56,7 @@ const work = await Promise.all(
                 >
                   {SOCIAL.NAME}
                 </Link>
-                {"/"}
+                {"|"}
               </li>
             ))
           }
@@ -73,7 +71,7 @@ const work = await Promise.all(
         </ul>
       </section>
 
-      <section class="animate space-y-6">
+      <section class="animate space-y-4">
         <div class="flex flex-wrap gap-y-2 items-center justify-between">
           <h5 class="font-semibold text-black dark:text-white">
             Recent projects
@@ -92,20 +90,16 @@ const work = await Promise.all(
       </section>
       
       <section>
-        <article class="space-y-4">
-          <p class="animate">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed malesuada arcu vestibulum, sollicitudin lacus quis, accumsan erat. Integer sit amet turpis nec lorem iaculis porta sed vitae lectus. Nunc a tellus at ipsum ornare commodo. Nulla eleifend massa ut orci porta, id fringilla nulla vestibulum. Nunc aliquam velit ut varius pulvinar. Nunc nec ante ac erat euismod sollicitudin vel non est. Suspendisse potenti. 
-          </p>
-          <p class="animate">
-            Vestibulum condimentum placerat tortor, at scelerisque enim. Duis at facilisis massa, non convallis est. In non congue velit. Donec at ex enim. Donec mattis interdum libero et finibus. In maximus urna mollis lorem elementum, non volutpat odio luctus. Curabitur lobortis massa eros, sit amet posuere nulla placerat vitae. Fusce eget erat elementum, porttitor mauris quis, accumsan mi. 
-          </p>
-          <p class="animate">
-            Fusce tempor at lacus ut pharetra. Vestibulum condimentum iaculis erat vitae faucibus. Aliquam leo felis, laoreet at posuere at, tempus tincidunt felis. Etiam et lacinia diam. Aenean et urna a sapien tristique luctus ut non turpis. Suspendisse venenatis quam ullamcorper sem elementum, ac accumsan quam auctor. Nulla aliquet et nisl eget scelerisque. Sed vel posuere lectus. In ligula sapien, consectetur maximus dapibus at, tristique eu magna. Pellentesque pharetra dui elit, nec sollicitudin est ultricies consectetur. Nulla quis vestibulum dui. Aliquam efficitur dolor eget purus feugiat, nec mollis ligula bibendum. 
-          </p>
-        </article>
+        <h5 class="font-semibold text-black dark:text-white">
+          <article class="space-y-4">
+            <p class="animate">
+              Check out some of my posts:
+            </p>
+          </article>
+        </h5>
       </section>
 
-      <section class="animate space-y-6">
+      <section class="animate space-y-4">
         <div class="flex flex-wrap gap-y-2 items-center justify-between">
           <h5 class="font-semibold text-black dark:text-white">Latest posts</h5>
           <Link href="/blog"> See all posts </Link>
@@ -121,7 +115,7 @@ const work = await Promise.all(
         </ul>
       </section>
 
-      <section class="animate space-y-6">
+<!--       <section class="animate space-y-4">
         <div class="flex flex-wrap gap-y-2 items-center justify-between">
           <h5 class="font-semibold text-black dark:text-white">
             Work Experience
@@ -146,8 +140,7 @@ const work = await Promise.all(
             ))
           }
         </ul>
-      </section>
-
+      </section> -->
     </div>
   </Container>
 </PageLayout>
